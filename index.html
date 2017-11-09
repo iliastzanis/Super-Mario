@@ -32,6 +32,8 @@ body {
 			game.load.audio('Sjump',['audio/jump.wav']);
 			game.load.audio('Skill',['audio/stomp.wav']);
 			game.load.audio('Swasted',['audio/wasted.mp3']);
+			game.load.audio('Sstomp',['audio/stomp.mp3']);
+			
 			//game.load.image("background", "assets/image.jpg");
 
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
@@ -147,7 +149,7 @@ body {
 
 		function goombaOverlap(player, goomba) {
 			if (player.body.touching.down) {
-				killSound = game.add.audio('Swasted');
+				killSound = game.add.audio('Sstomp');
 				killSound.play();
 				goomba.animations.stop();
 				goomba.frame = 2;
@@ -159,7 +161,7 @@ body {
 			} else {
 				
 				music.stop();
-				deathSound = game.add.audio('Sdeath');
+				deathSound = game.add.audio('Swasted');
 				deathSound.play();
 				
 				player.frame = 6;
