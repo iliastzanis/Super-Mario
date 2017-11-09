@@ -30,7 +30,7 @@ body {
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
 					16);
 			this.load.spritesheet('goomba', 'assets/goomba.png', 16, 16);
-			this.load.spritesheet('mario', 'assets/waluigi.png', 16, 16);
+			this.load.spritesheet('waluigi', 'assets/waluigi.png', 16, 16);
 			this.load.spritesheet('coin', 'assets/coin.png', 16, 16);
 			
 			
@@ -75,7 +75,7 @@ body {
 			goombas.setAll('body.velocity.x', -20);
 			goombas.setAll('body.gravity.y', 500);
 
-			player = game.add.sprite(16, game.world.height - 48, 'mario');
+			player = game.add.sprite(16, game.world.height - 48, 'waluigi');
 			game.physics.arcade.enable(player);
 			player.body.gravity.y = 370;
 			player.body.collideWorldBounds = true;
