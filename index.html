@@ -30,10 +30,11 @@ body {
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
 					16);
 			this.load.spritesheet('goomba', 'assets/goomba.png', 16, 16);
-			this.load.spritesheet('mario', 'assets/char.png', 16, 16);
-			this.load.spritesheet('coin', 'assets/coin.png', 16, 16);
-			
-			
+			this.load.spritesheet('waluigi', 'assets/waluigi.png', 16, 16);
+			//this.load.spritesheet('coin', 'assets/coin.png', 16, 16);
+			this.load.spritesheet('beer', 'assets/Untitled.png', 16, 16);
+			this.load.spritesheet('mario', 'assets/mario.png', 16, 16);
+			this.load.spritesheet('tileset', 'assets/52571.png', 16, 16);
 
 			this.load.tilemap('level', 'assets/newmap.json', null,
 					Phaser.Tilemap.TILED_JSON);
@@ -50,6 +51,7 @@ body {
 
 			map = game.add.tilemap('level');
 			map.addTilesetImage('tiles', 'tiles');
+			map.addTilesetImage('tileset', '52571');
 			map.setCollisionBetween(3, 12, true, 'solid');
 
 			map.createLayer('background');
