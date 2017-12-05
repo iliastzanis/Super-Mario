@@ -114,7 +114,9 @@ body {
 
 			cursors = game.input.keyboard.createCursorKeys();
 		}
-
+                
+		var score=0;
+		
 		function update() {
 			game.physics.arcade.collide(player, layer);
 			game.physics.arcade.collide(goombas, layer);
@@ -175,8 +177,10 @@ body {
 				
 				game.time.events.add(Phaser.Timer.SECOND, function() {
 					goomba.kill();
-				});
-			} else {
+				       });
+			          } 
+			     
+			   else {
 				
 				music.stop();
 				deathSound = game.add.audio('Swasted');
