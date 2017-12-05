@@ -51,7 +51,7 @@ body {
 		
 	        var points; 
 		var lives=3;
-		var howlives;
+		var howmanylives;
 		var imagelive;
 
 		function create() {
@@ -103,10 +103,10 @@ body {
 
 			game.camera.follow(player);
 			
-			points=game.add.text(16,8,'SCORE:  '+score,{font:'20px Press Start 2P' ,fontSize: '12px', fill: 'black'} );
+			points=game.add.text(16,8,'SCORE:  '+score,{font:'16px Press Start 2P' ,fontSize: '10px', fill: 'black'} );
 			points.fixedToCamera=true;
 			imagelive=game.add.sprite(150,8,'zwi1');
-			howlives=game.add.text(178,8,' :   '+lives,{font:'20px Press Start 2P' ,fontSize: '12px', fill: 'black'});
+			howmanylives=game.add.text(178,8,' :   '+lives,{font:'16px Press Start 2P' ,fontSize: '10px', fill: 'black'});
 			imagelive.fixedToCamera=true;
 			howlives.fixedToCamera=true;
 			
