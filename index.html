@@ -34,8 +34,8 @@ body {
 			game.load.audio('Swasted',['audio/wasted.mp3']);
 			game.load.audio('Sstomp',['audio/stomp.wav']);
 			
-			//game.load.image("background", "assets/image.jpg");
-
+			
+                        this.load.image('zwi1','assets/zwi.png');
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
 					16);
 			this.load.spritesheet('goomba', 'assets/goomba.png', 16, 16);
@@ -48,6 +48,11 @@ body {
 			this.load.tilemap('level', 'assets/newmap.json', null,
 					Phaser.Tilemap.TILED_JSON);
 		}
+		
+	        var points; 
+		var lives=3;
+		var howlives;
+		var imagelive;
 
 		function create() {
 			
@@ -97,6 +102,15 @@ body {
 			player.goesRight = true;
 
 			game.camera.follow(player);
+			
+			points=game.add.text(16,8,'SCORE:  '+score,{font:'20px Press Start 2P' ,fontSize: '12px', fill: 'black'} );
+			points.fixedToCamera=true;
+			imagelive=game.add.sprite(150,8,'zwi1');
+			howlives=game.add.text(178,8,' :   '+lives,{font:'20px Press Start 2P' ,fontSize: '12px', fill: 'black'});
+			imagelive.fixedToCamera=true;
+			howlives.fixedToCamera=true;
+			
+			
 
 			cursors = game.input.keyboard.createCursorKeys();
 		}
