@@ -148,7 +148,7 @@ body {
 		}
 		
 		
-		if(lives==3){
+		if(lives>=3){
 	             alert("try to collect all beers. Kill Trumps for extra points!!");
 			}
 		}
@@ -263,7 +263,7 @@ body {
 			coinSound = game.add.audio('Scoin');
 			coinSound.play();
 			
-			coicount++;
+			coicount+=1;
 			
 			if (coincount == 111){
 			    setTimeout(function(){
