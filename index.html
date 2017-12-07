@@ -43,8 +43,6 @@ body {
                         this.load.image('zwi1','assets/zwi.png');
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
 					16);
-			this.load.spritesheet('trump', 'assets/trump.tsx', 16,
-					16);
 			this.load.spritesheet('goomba', 'assets/goomba.png', 16, 16);
 			this.load.spritesheet('trump', 'assets/trump.png', 16, 16);
 			this.load.spritesheet('waluigi', 'assets/waluigi.png', 16, 16);
@@ -101,16 +99,6 @@ body {
 			goombas.setAll('body.velocity.x', -20);
 			goombas.setAll('body.gravity.y', 500);
 			
-			trumps = game.add.group();
-			trumps.enableBody = true;
-			map.createFromTiles(1, null, 'trump', 'stuff', trumps);
-			trumps.callAll('animations.add', 'animations', 'walk', [ 0, 1 ],
-					2, true);
-			trumps.callAll('animations.play', 'animations', 'walk');
-			trumps.setAll('body.bounce.x', 1);
-			trumps.setAll('body.velocity.x', -20);
-			trumps.setAll('body.gravity.y', 500);
-			
 			
 
 			player = game.add.sprite(16, game.world.height - 48, 'waluigi');
@@ -141,8 +129,6 @@ body {
 			game.physics.arcade.collide(player, layer);
 			game.physics.arcade.collide(goombas, layer);
 			game.physics.arcade.overlap(player, goombas, goombaOverlap);
-			game.physics.arcade.collide(trumps, layer);
-			game.physics.arcade.overlap(player, trumps, trumpsOverlap);
 			game.physics.arcade.overlap(player, coins, coinOverlap);
 
 			if (player.body.enable) {
@@ -231,54 +217,6 @@ body {
 				}
 			}
 		}
-		
-		function trumpOverlap(player, trump) {
-			if (player.body.touching.down) {
-				killSound = game.add.audio('Sstomp');
-				killSound.play();
-				trump.animations.stop();
-				trump.frame = 2;
-				trump.body.enable = false;
-				player.body.velocity.y = -80;
-				
-				score +=15;
-				points.text='SCORE:'+score;
-				
-				game.time.events.add(Phaser.Timer.SECOND, function() {
-					trumps.kill();
-				       });
-			          } 
-			     
-			   else {
-				
-				music.stop();
-				deathSound = game.add.audio('Swasted');
-				deathSound.play();
-				
-				player.frame = 6;
-				player.body.enable = false;
-				player.animations.stop();
-				
-				if(lives>1){
-				  setTimeout(function(){
-					score=0;
-					lives-=1;
-				        game.state.start(game.state.current);
-    		   		   }, 4000);
-    					    }
-				
-				else {
-				  setTimeout(function(){
-				    alert("GAME OVER");
-				    location.reload();
-				     }, 4000);
-				}
-			}
-		}
-		
-		
-		
-		
 	</script>
 </body>
 </html>
