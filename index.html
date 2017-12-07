@@ -59,6 +59,7 @@ body {
 		var lives=3;
 		var howmanylives;
 		var imagelive;
+		var coincount;
 
 		function create() {
 			
@@ -144,6 +145,12 @@ body {
 			
 
 			cursors = game.input.keyboard.createCursorKeys();
+		}
+		
+		
+		if(lives==3){
+	             alert("try to collect all beers. Kill Trumps for extra points!!");
+			}
 		}
                 
 		var score=0;
@@ -255,6 +262,16 @@ body {
 			coin.kill();
 			coinSound = game.add.audio('Scoin');
 			coinSound.play();
+			
+			coicount++;
+			
+			if (coincount == 111){
+			    setTimeout(function(){
+				 alert ("Game finished.You have collected all coins. Press ok for restart");
+				 location.reload();
+			      }, 4000);
+			}
+				
 			
 			score +=10;
 			points.text='SCORE:'+score;
