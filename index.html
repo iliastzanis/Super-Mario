@@ -78,13 +78,11 @@ body {
 			map = game.add.tilemap('level');
 			map.addTilesetImage('tiles', 'tiles');
 			map.setCollisionBetween(3, 12, true, 'solid');
-			//map.setCollisionBetween(3, 12, true, 'trump');
-
 
 			map.createLayer('background');
 
 			layer = map.createLayer('solid');
-			//trump = map.createLayer('trump');
+			
 			layer.resizeWorld();
 			
 			trumps = game.add.group();																			//stuff for squirtle
