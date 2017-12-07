@@ -46,7 +46,6 @@ body {
 			this.load.spritesheet('goomba', 'assets/goomba.png', 16, 16);
 			this.load.spritesheet('trump', 'assets/trump.png', 16, 16);
 			this.load.spritesheet('waluigi', 'assets/waluigi.png', 16, 16);
-			this.load.spritesheet('squirtle', 'assets/squirtle.png',16,16);
 			this.load.spritesheet('coin', 'assets/coin.png', 16, 16);
 			
 			
@@ -79,15 +78,18 @@ body {
 			map = game.add.tilemap('level');
 			map.addTilesetImage('tiles', 'tiles');
 			map.setCollisionBetween(3, 12, true, 'solid');
+			//map.setCollisionBetween(3, 12, true, 'trump');
+
 
 			map.createLayer('background');
 
 			layer = map.createLayer('solid');
+			//layer = map.createLayer('trump');
 			layer.resizeWorld();
 			
 			trump = game.add.group();																			//stuff for squirtle
 			trump.enableBody=true;
-			map.createFromTiles(1,null,'trump','enemy',trump);
+			map.createFromTiles(1,null,'trump','trump',trump);
 		        trump.callAll('animations.add', 'animations', 'walk', [ 0, 1 ],
 					2, true);
 			trump.callAll('animations.play', 'animations', 'walk');
