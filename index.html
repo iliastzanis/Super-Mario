@@ -149,6 +149,7 @@ body {
 		var score=0;
 		
 		function update() {
+			game.physics.arcade.collide(player,pipe,pipeOverlap);
 			game.physics.arcade.collide(player, layer);
 			game.physics.arcade.collide(goombas, layer);
 			game.physics.arcade.collide(trumps, layer);
