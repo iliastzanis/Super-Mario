@@ -78,8 +78,13 @@ body {
 			map = game.add.tilemap('level');
 			map.addTilesetImage('tiles', 'tiles');
 			map.setCollisionBetween(3, 12, true, 'solid');
+			
+			map.setCollisionBetween(3, 12, true, 'pipe');
 
 			map.createLayer('background');
+			
+			pipe = map.createLayer('pipe');
+                        pipe.resizeWorld();
 
 			layer = map.createLayer('solid');
 			
@@ -120,6 +125,9 @@ body {
 			game.physics.arcade.enable(player);
 			player.body.gravity.y = 370;
 			player.body.collideWorldBounds = true;
+			
+			player.animations.add('Teleport', [10],10,false);
+			
 			player.animations.add('walkRight', [ 1, 2, 3 ], 10, true);
 			player.animations.add('walkLeft', [ 8, 9, 10 ], 10, true);
 			player.goesRight = true;
@@ -181,6 +189,18 @@ body {
 				}
 			}
 		}
+		
+				function pipeOverlap(player,pipe){
+	                            if (cursors.down.isDown && (player.body.onFloor())) {
+		                       player.animations.play('Teleport');
+		                       player.body.enable=false;
+		                   game.time.events.add(Phaser.Timer.SECOND*1.2 , function() {
+					player.body.enable=true;
+					player.reset(1495,150);
+					});
+				}
+                            }
+		
 		
 		
 		        function trumpOverlap(player, trump) {
