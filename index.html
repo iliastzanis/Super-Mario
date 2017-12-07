@@ -59,7 +59,7 @@ body {
 		var lives=3;
 		var howmanylives;
 		var imagelive;
-		var coincount;
+		
 
 		function create() {
 			
@@ -262,18 +262,7 @@ body {
 			coin.kill();
 			coinSound = game.add.audio('Scoin');
 			coinSound.play();
-			
-			coicount+=1;
-			
-			if (coincount == 111){
-			    setTimeout(function(){
-				 alert ("Game finished.You have collected all coins. Press ok for restart");
-				 location.reload();
-			      }, 4000);
-			}
-				
-			
-			score +=10;
+			score +=100;
 			points.text='SCORE:'+score;
 		}
 
