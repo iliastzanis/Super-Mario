@@ -78,13 +78,13 @@ body {
 			map = game.add.tilemap('level');
 			map.addTilesetImage('tiles', 'tiles');
 			map.setCollisionBetween(3, 12, true, 'solid');
-			//map.setCollisionBetween(3, 12, true, 'trump');
+			map.setCollisionBetween(3, 12, true, 'trump');
 
 
 			map.createLayer('background');
 
 			layer = map.createLayer('solid');
-			//layer = map.createLayer('trump');
+			trump = map.createLayer('trump');
 			layer.resizeWorld();
 			
 			trump = game.add.group();																			//stuff for squirtle
@@ -145,7 +145,7 @@ body {
 		function update() {
 			game.physics.arcade.collide(player, layer);
 			game.physics.arcade.collide(goombas, layer);
-			game.physics.arcade.collide(trump, layer);
+			game.physics.arcade.collide(trump, trump);
                         game.physics.arcade.overlap(player,trump, trumpOverlap);
 			game.physics.arcade.overlap(player, goombas, goombaOverlap);
 			game.physics.arcade.overlap(player, coins, coinOverlap);
