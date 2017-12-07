@@ -87,15 +87,15 @@ body {
 			//trump = map.createLayer('trump');
 			layer.resizeWorld();
 			
-			trump = game.add.group();																			//stuff for squirtle
-			trump.enableBody=true;
-			map.createFromTiles(1,null,'trump','trump',trump);
-		        trump.callAll('animations.add', 'animations', 'walk', [ 0, 1 ],
+			trumps = game.add.group();																			//stuff for squirtle
+			trumps.enableBody=true;
+			map.createFromTiles(1,null,'trump','trump',trumps);
+		        trumps.callAll('animations.add', 'animations', 'walk', [ 0, 1 ],
 					2, true);
-			trump.callAll('animations.play', 'animations', 'walk');
-			trump.setAll('body.bounce.x', 1);
-			trump.setAll('body.velocity.x', -20);
-			trump.setAll('body.gravity.y', 500);
+			trumps.callAll('animations.play', 'animations', 'walk');
+			trumps.setAll('body.bounce.x', 1);
+			trumps.setAll('body.velocity.x', -20);
+			trumps.setAll('body.gravity.y', 500);
 
 			
 			
@@ -145,8 +145,8 @@ body {
 		function update() {
 			game.physics.arcade.collide(player, layer);
 			game.physics.arcade.collide(goombas, layer);
-			game.physics.arcade.collide(trump, trump);
-                        game.physics.arcade.overlap(player,trump, trumpOverlap);
+			game.physics.arcade.collide(trumps, layer);
+                        game.physics.arcade.overlap(player,trumps, trumpOverlap);
 			game.physics.arcade.overlap(player, goombas, goombaOverlap);
 			game.physics.arcade.overlap(player, coins, coinOverlap);
 
